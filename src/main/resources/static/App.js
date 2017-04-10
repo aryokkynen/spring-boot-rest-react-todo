@@ -10,7 +10,7 @@ class App extends React.Component {
 	componentDidMount() {
 
 		this.fetchTodoes();
-		
+
 	}
 	
 	
@@ -44,6 +44,7 @@ class App extends React.Component {
 		return (
 			<div>
 			<TodoList todoes={this.state.todoes} deleteTodo={this.deleteTodo}/>
+			<br/>
 			<AddNewTodo addTodo={this.addTodo} /> 
 			</div>
 		)
@@ -56,17 +57,8 @@ class TodoList extends React.Component{
 			<Todo key={todo._links.self.href} todo={todo} deleteTodo={this.props.deleteTodo}/>
 		);
 		return (
-			<table className="table table-striped">
-				<tbody>
-					<tr>
-						<th>Date</th>
-						<th>Task</th>
-						<th>Description</th>
-						<th></th>
-					</tr>
-					{todoes}
-				</tbody>
-			</table>
+			<div className="container">{todoes}</div>
+
 		)
 	}
 }
@@ -87,14 +79,23 @@ class Todo extends React.Component{
 	
 	render() {
 		return (
-			<tr>
-				<td>{this.props.todo.date}</td>
-				<td>{this.props.todo.task}</td>
-				<td>{this.props.todo.description}</td>
-	            <td>
-            		<button className="btn btn-success pull-right" onClick={this.deleteTodo}>Done</button>
-				</td>
-			</tr>
+
+
+			<article className="message is-info">
+			  <div className="message-header">
+			    <p><span className="icon is-small">
+            	<i className="fa fa-calendar" aria-hidden="true"></i>
+                </span>&nbsp;{this.props.todo.date}, {this.props.todo.task} </p>
+			    <button className="delete" onClick={this.deleteTodo}></button>
+			  </div>
+				  <div className="message-body"> 
+					 {this.props.todo.description}
+					  <button className="button is-primary pull-right" onClick={this.deleteTodo}>Done</button><br/><br/>
+				  </div>
+			</article>
+			
+			
+			
 		)
 	}
 }
@@ -119,25 +120,41 @@ class AddNewTodo extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         var todo = {
-        		title: this.state.date, 
-        		author: this.state.task,
-        		isbn: this.state.description
+        		date: this.state.date, 
+        		task: this.state.task,
+        		description: this.state.description
         		};        
         this.props.addTodo(todo);        
     }
     
     render() {
         return (
-        		
-                <form className="form-group">                
-                <fieldset>
-                <legend>Enter new task</legend>               
-                	<input type="date" placeholder="Date" name="date" className="form-control" onChange={this.handleChange} />    
-	                <input type="text" placeholder="Task" className="form-control" name="task" onChange={this.handleChange} />
-	                <input type="text" placeholder="Description" className="form-control" name="description" onChange={this.handleChange} />
-	                <button className="btn btn-success pull-right" onClick={this.handleSubmit}>Add new Task!</button>                                      
-                </fieldset>
-                </form> 
+                <div className="field">
+	                <label className="label">Enter new task</label>
+	                <p className="control has-icon">
+	                
+	                	<input type="date" placeholder="Date" name="date" className="input" onChange={this.handleChange} readonly />
+			                <span className="icon is-small">
+			                	<i className="fa fa-calendar" aria-hidden="true"></i>
+			                </span>
+	                </p>
+	                
+	                <p className="control has-icon">
+		                <input type="text" placeholder="Task" className="input" name="task" onChange={this.handleChange} />
+			                <span className="icon is-small">
+			                	<i className="fa fa-tasks" aria-hidden="true"></i>
+			                </span>
+	                </p>
+	                
+	                <p className="control has-icon">
+		                <input type="text" placeholder="Description" className="input" name="description" onChange={this.handleChange} />
+			                <span className="icon is-small">
+			                <i className="fa fa-file-text" aria-hidden="true"></i>
+			                </span>
+	                </p>
+	                <br/><button className="button is-success pull-right" onClick={this.handleSubmit}>Add new Task!</button>
+	                
+                </div>
         );
     }
 }

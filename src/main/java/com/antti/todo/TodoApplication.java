@@ -35,12 +35,12 @@ public class TodoApplication {
 
 			
 			
-			Todo task1 = new Todo("04/04/2017", "Fix stuff", "Todolist is still broken");
-			Todo task2 = new Todo("04/03/2017", "Fix stuff", "Todolist is still broken");
-			Todo task3 = new Todo("04/02/2017", "Fix stuff", "Todolist is still broken");
-			Todo task4 = new Todo("03/29/2017", "Fix stuff", "Todolist is still broken");
-			Todo task5 = new Todo("01/01/2017", "Fix stuff", "Todolist is still broken");
-			Todo task6 = new Todo("12/28/2016", "Fix stuff", "Todolist is still broken");
+			Todo task6 = new Todo("2017-05-16", "Demo", "Show this");
+			Todo task5 = new Todo("2017-05-15", "To-do list", "List is still broken!");
+			Todo task4 = new Todo("2017-04-05", "Performance appraisal", "Lie to boss how good worker you are");
+			Todo task3 = new Todo("2017-04-04", "Deployment of new webapp", "Wish your Q/A test were good enough");
+			Todo task2 = new Todo("2017-04-03", "Test new webapp", "Do QA testing for new website, report bugs");
+			Todo task1 = new Todo("2016-12-28", "Fix stuff", "To-dolist is still broken");
 			
 			repository.save(task1);
 			repository.save(task2);

@@ -2,39 +2,62 @@
 <html>
 
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Simple todo list</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Simple to-do list</title>
+<!-- React Stuff -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+
+<!-- CSS Stuff -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body>
 
-<div style="float:right; padding: 5px;">	
-	    <a href="/logout"><button class="btn btn-danger btn-sm" >Logout</button></a>
-</div>
-<div class="container">
-	<div class="well">
-<pre>
-████████╗ ██████╗ ██████╗  ██████╗     ██╗     ██╗███████╗████████╗
-╚══██╔══╝██╔═══██╗██╔══██╗██╔═══██╗    ██║     ██║██╔════╝╚══██╔══╝
-   ██║   ██║   ██║██║  ██║██║   ██║    ██║     ██║███████╗   ██║   
-   ██║   ██║   ██║██║  ██║██║   ██║    ██║     ██║╚════██║   ██║   
-   ██║   ╚██████╔╝██████╔╝╚██████╔╝    ███████╗██║███████║   ██║   
-   ╚═╝    ╚═════╝ ╚═════╝  ╚═════╝     ╚══════╝╚═╝╚══════╝   ╚═╝   </pre>
+	<nav class="nav has-shadow">
+		<div class="container">
+			<div class="nav-left is-tab">
+				<h1 class="title is-2">To-do list</h1>
+			</div>
+			<div class="nav-right">
+				<a href="/logout" class="nav-item"><button
+						class="button is-danger ">Logout</button></a>
+			</div>
 		</div>
-</div>
-<div class='container'>
-	<div id='root'></div>
-</div>
+	</nav>
+	<br>
+	<br>
+	<div class='container'>
+		<div id='root'></div>
+	</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="css/main.css">
+	<script type="text/babel" src="App.js"></script>
+	<br>
+	<br>
+	<br>
+
+	<section class="hero is-info">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title">Made with</h1>
+				<h2 class="subtitle">Spring Boot + React + Font Awesome + Bulma
+					+ Bootstrap CSS</h2>
+			</div>
+		</div>
+	</section>
 
 
-<script type="text/babel" src="App.js"></script>
+
 
 </body>
 </html>
