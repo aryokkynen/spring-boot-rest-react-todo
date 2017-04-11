@@ -40,7 +40,7 @@ public class TodoApplication {
 			Todo task4 = new Todo("2017-04-05", "Performance appraisal", "Lie to boss how good worker you are");
 			Todo task3 = new Todo("2017-04-04", "Deployment of new webapp", "Wish your Q/A test were good enough");
 			Todo task2 = new Todo("2017-04-03", "Test new webapp", "Do QA testing for new website, report bugs");
-			Todo task1 = new Todo("2016-12-28", "Fix stuff", "To-dolist is still broken");
+			Todo task1 = new Todo("2016-12-28", "Fix stuff", "To-do list is still broken");
 			
 			repository.save(task1);
 			repository.save(task2);

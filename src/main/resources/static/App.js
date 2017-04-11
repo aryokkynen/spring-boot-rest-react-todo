@@ -86,7 +86,7 @@ class Todo extends React.Component{
 			    <p><span className="icon is-small">
             	<i className="fa fa-calendar" aria-hidden="true"></i>
                 </span>&nbsp;{this.props.todo.date}, {this.props.todo.task} </p>
-			    <button className="delete" onClick={this.deleteTodo}></button>
+                <button className="delete" onClick={this.deleteTodo}></button>
 			  </div>
 				  <div className="message-body"> 
 					 {this.props.todo.description}
@@ -94,6 +94,7 @@ class Todo extends React.Component{
 				  </div>
 			</article>
 			
+
 			
 			
 		)
@@ -152,7 +153,7 @@ class AddNewTodo extends React.Component {
 			                <i className="fa fa-file-text" aria-hidden="true"></i>
 			                </span>
 	                </p>
-	                <br/><button className="button is-success pull-right" onClick={this.handleSubmit}>Add new Task!</button>
+	                <br/><button className="button is-warning pull-right" onClick={this.handleSubmit}>Add new Task!</button>
 	                
                 </div>
         );

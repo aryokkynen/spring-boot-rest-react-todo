@@ -12,7 +12,9 @@
 <link type="text/css" rel="stylesheet" href="css/bulma.css"
 	th:href="@{css/bulma.css}" />
 
-
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}" />
 
 <body>
 
@@ -28,23 +30,35 @@
 
 				<div th:if="${param.error}">
 
-					<div class="notification is-danger">Invalid username or/and
-						password.</div>
+					<div class="notification is-danger">
+						<span class="icon"><i class="fa fa-exclamation"></i></span>
+						Invalid username or/and password.
+					</div>
 					<br />
 				</div>
 				<div th:if="${param.logout}">
-					<div class="notification is-success">You have successfully
-						logged out!</div>
+					<div class="notification is-success">
+						<span class="icon"> <i class="fa fa-exclamation"></i></span>						
+						You have successfully logged out!
+					</div>
 					<br />
 				</div>
 
 				<div class="field">
-					<input class="input" type="text" name="username"
-						placeholder="Username..." />
+					<p class="control has-icon">
+						<input class="input" type="text" name="username"
+							placeholder="Username..." /> <span class="icon is-small">
+							<i class="fa fa-pencil"></i>
+						</span>
+					</p>
 				</div>
 				<div class="field">
-					<input class="input" type="password" placeholder="Password"
-						name="password" />
+					<p class="control has-icon">
+						<input class="input" type="password" placeholder="Password"
+							name="password" /> <span class="icon is-small"> <i
+							class="fa fa-lock"></i>
+						</span>
+					</p>
 				</div>
 				<div class="field">
 					<p class="control">
@@ -64,11 +78,13 @@
 		<div class="hero-body">
 			<div class="container">
 				<h1 class="title">Made with</h1>
-				<h2 class="subtitle">Spring Boot + React + Font Awesome + Bulma
-					+ Bootstrap CSS</h2>
+				<h2 class="subtitle">Spring Boot + React + <i class="fa fa-font-awesome" aria-hidden="true"></i>&nbsp;Font Awesome 
+				 + Bulma</h2>
 			</div>
 		</div>
 	</section>
+
+
 
 </body>
 </html>
