@@ -16,9 +16,10 @@ public class TodoController {
 		return "login";
 	} 
     
+    /*
     @RequestMapping(value = "/")
     public String reactStart() {
         return "index.html";
     }
-        
+    */   
 }

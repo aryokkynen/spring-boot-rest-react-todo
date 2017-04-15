@@ -5,7 +5,7 @@
 
 	<groupId>com.antti.todo</groupId>
 	<artifactId>todo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<packaging>war</packaging>
 
 	<name>Todo</name>
@@ -70,6 +70,9 @@
 		<groupId>org.springframework.data</groupId>
 		<artifactId>spring-data-rest-webmvc</artifactId>
 		</dependency>
+		
+		
+		<!-- uncomment this to deploy server -->
 		 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

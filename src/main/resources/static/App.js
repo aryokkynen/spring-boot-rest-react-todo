@@ -15,8 +15,10 @@ class App extends React.Component {
 	
 	
 	fetchTodoes() {
+		//http://207.154.255.130:8080/todo/api/todoes
+		//http://localhost:8080/api/todoes
 		
-		fetch('http://localhost:8080/api/todoes', { credentials: 'same-origin' }) 
+		fetch('http://207.154.255.130:8080/todo/api/todoes', { credentials: 'same-origin' }) 
 		.then((response) => response.json()) 
 		.then((responseData) => {
 			this.setState({todoes: responseData._embedded.todoes}); 
@@ -30,9 +32,10 @@ class App extends React.Component {
 		.catch( err => console.error(err))                
 	} 
 	
-	
+	//http://207.154.255.130:8080/todo/todoes
+	//http://localhost:8080/api/todoes
 	addTodo(todo) {
-		fetch('http://localhost:8080/api/todoes', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' },
+		fetch('http://207.154.255.130:8080/todo/api/todoes', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(todo)})
 		.then(res => this.fetchTodoes())
 		.catch( err => console.error(err))
@@ -68,13 +71,18 @@ class Todo extends React.Component{
     constructor(props) {
         super(props);
         this.deleteTodo = this.deleteTodo.bind(this);
+        this.handleChange = this.handleChange.bind(this); 
+        this.state = {description: this.props.todo.description};
+        
     }
 
     deleteTodo() {
         this.props.deleteTodo(this.props.todo);
     } 
 	
-	
+    handleChange(event) {
+        this.setState({[event.target.name]: event.target.value});
+    } 
 	
 	
 	render() {
@@ -90,12 +98,9 @@ class Todo extends React.Component{
 			  </div>
 				  <div className="message-body"> 
 					 {this.props.todo.description}
-					  <button className="button is-primary pull-right" onClick={this.deleteTodo}>Done</button><br/><br/>
-				  </div>
-			</article>
-			
-
-			
+					  <button className="button is-primary pull-right" onClick={this.deleteTodo}>Done</button><br/><br/>	
+				  </div>		  
+			</article>	
 			
 		)
 	}
@@ -105,17 +110,18 @@ class AddNewTodo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        		author: '', 
-        		title: '',
-        		isbn: '',
-        		year: ''
-        		};                
+        		date: '', 
+        		task: '',
+        		description: ''        		
+        		};     
+        
         this.handleSubmit = this.handleSubmit.bind(this);   
         this.handleChange = this.handleChange.bind(this);     
     	}
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
+
     }    
     
     handleSubmit(event) {
@@ -124,7 +130,8 @@ class AddNewTodo extends React.Component {
         		date: this.state.date, 
         		task: this.state.task,
         		description: this.state.description
-        		};        
+        		};  
+        
         this.props.addTodo(todo);        
     }
     
@@ -134,7 +141,7 @@ class AddNewTodo extends React.Component {
 	                <label className="label">Enter new task</label>
 	                <p className="control has-icon">
 	                
-	                	<input type="date" placeholder="Date" name="date" className="input" onChange={this.handleChange} readonly />
+	                	<input type="date" placeholder="Date" name="date" className="input" onChange={this.handleChange} />
 			                <span className="icon is-small">
 			                	<i className="fa fa-calendar" aria-hidden="true"></i>
 			                </span>
