@@ -1,3 +1,10 @@
+//Detect if app is running on localhost, or is hosted at server
+var host = window.location.host;
+if (!host.includes('localhost')) {
+	host = host + '/todo';
+}
+
+
 class App extends React.Component {
 
 	constructor(props) {
@@ -6,7 +13,7 @@ class App extends React.Component {
 		this.addTodo = this.addTodo.bind(this);
 		this.state = {todoes: []};
 	}
-
+t 
 	componentDidMount() {
 
 		this.fetchTodoes();
@@ -15,10 +22,7 @@ class App extends React.Component {
 	
 	
 	fetchTodoes() {
-		//http://207.154.255.130:8080/todo/api/todoes
-		//http://localhost:8080/api/todoes
-		
-		fetch('http://207.154.255.130:8080/todo/api/todoes', { credentials: 'same-origin' }) 
+		fetch('http://' + host + '/api/todoes', { credentials: 'same-origin' }) 
 		.then((response) => response.json()) 
 		.then((responseData) => {
 			this.setState({todoes: responseData._embedded.todoes}); 
@@ -32,10 +36,8 @@ class App extends React.Component {
 		.catch( err => console.error(err))                
 	} 
 	
-	//http://207.154.255.130:8080/todo/todoes
-	//http://localhost:8080/api/todoes
 	addTodo(todo) {
-		fetch('http://207.154.255.130:8080/todo/api/todoes', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' },
+		fetch('http://' + host + '/api/todoes', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(todo)})
 		.then(res => this.fetchTodoes())
 		.catch( err => console.error(err))

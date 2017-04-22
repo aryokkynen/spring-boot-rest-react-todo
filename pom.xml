@@ -5,11 +5,11 @@
 
 	<groupId>com.antti.todo</groupId>
 	<artifactId>todo</artifactId>
-	<version>0.0.2</version>
+	<version>0.1.2</version>
 	<packaging>war</packaging>
 
 	<name>Todo</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Tiny todo app</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
